@@ -1,0 +1,89 @@
+---
+import TimeZone from "../components/TimeZoneCard.astro";
+import { formatTime, getCurrentTime } from "../lib/helpers";
+
+---
+
+<script>
+  import { onCleanup, onMount } from "solid-js";
+  import { formatTimeForItaly } from "../lib/helpers";
+import { formatTime } from "../lib/helpers";
+
+  let interval: ReturnType<typeof setInterval>;
+
+  function updateClock() {
+    const timeDisplay = document.getElementById("timeDisplay");
+    const now = new Date();
+
+    if (timeDisplay) {
+      timeDisplay.textContent = formatTime(now);
+      timeDisplay.setAttribute("datetime", now.toISOString());
+    }
+  }
+
+  onMount(() => {
+    interval = setInterval(updateClock, 1000);
+  });
+
+  onCleanup(() => {
+    clearInterval(interval);
+  });
+</script>
+
+
+<header     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative  w-full">
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Alexi Ae</a>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/projects">Proyectos</a></li>
+        <!-- <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li> -->
+      </ul>
+      <ul>
+        <li>    
+          <time
+          datetime=""
+          id="timeDisplay"
+          class="text-2xl xl:text-1xl xl:whitespace-nowrap font-serif flex"
+        >
+          {formatTime(getCurrentTime())}
+        </time>
+        
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <style>
+    .navbar {
+      background-color: #333;
+      padding: 1rem;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff6347; /* Color al pasar el mouse */
+    }
+  </style>
+  
+</header>
