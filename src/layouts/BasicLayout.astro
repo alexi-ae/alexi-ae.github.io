@@ -26,26 +26,26 @@ const schema =
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
-        url: "https://gianmarco.xyz",
+        name:  "Alexi Ae",
+        url: "https://alexiae.xyz",
         sameAs: [
-          "https://www.linkedin.com/in/gianmarco-cavallo",
-          "https://github.com/Ladvace",
+          "https://www.linkedin.com/in/ronald-alexi-ae",
+          "https://github.com/alexi-ae",
         ],
-        image: "https://gianmarco.xyz/og-image.png",
-        jobTitle: "Freelance Frontend Developer",
+        image: "https://alexiae.xyz/og-image.png",
+        jobTitle: "Backend Developer",
         worksFor: {
-          "@type": "Organization",
+          "@type": "Backedn Organization",
           name: "Self-Employed",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
+            addressLocality: "Perú",
+            addressCountry: "PE",
           },
         },
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "Perú",
         },
       }
     : {
@@ -53,26 +53,26 @@ const schema =
         "@type": "BlogPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://gianmarco.xyz/blog/${slug}`,
+          "@id": `https://alexi.xyz/blog/${slug}`,
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        image: "https://gianmarco.xyz/og-image.png", //TODO: dynamic
+        image: "https://alexiae.xyz/og-image.png", //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
-          url: "https://gianmarco.xyz",
+          name: "Alexi Ae",
+          url: "https://alexiae.xyz",
           sameAs: [
-            "https://www.linkedin.com/in/gianmarco-cavallo",
-            "https://github.com/Ladvace",
+            "https://www.linkedin.com/in/ronald-alexi-ae",
+            "https://github.com/alexi-ae",
           ],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "AlexiAe",
           logo: {
             "@type": "ImageObject",
-            url: "https://gianmarco.xyz/og-image.png",
+            url: "https://alexiae.xyz/og-image.png",
           },
         },
         datePublished: frontmatter?.pubDate || new Date().toISOString(),
@@ -97,7 +97,7 @@ const schema =
     <meta property="og:url" content={Astro.url.origin} />
     <meta
       property="og:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || "https://alexiae.xyz/og-image.png"}
     />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -105,7 +105,7 @@ const schema =
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || "https://alexiae.xyz/og-image.png"}
     />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />

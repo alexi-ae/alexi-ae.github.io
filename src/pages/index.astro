@@ -8,6 +8,8 @@ import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
 import Globe from "../components/Globe";
 import HeaderMain from "../components/HeaderMain.astro";
+import config from "../../astro.config.mjs"
+
 ---
 
 <script>
@@ -33,7 +35,7 @@ import HeaderMain from "../components/HeaderMain.astro";
 </script>
 
 <Layout
-  title="Gianmarco Cavallo - Freelance front-end Developer"
+  title= {config.title}
   description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
 >
 <HeaderMain/>
@@ -72,21 +74,5 @@ import HeaderMain from "../components/HeaderMain.astro";
     <p class="text-xs">En esta sección presento una selección de proyectos destacados, demostrando mi experiencia en desarrollo backend y
       soluciones tecnológicas eficientes.</p>  
   </Card>
-
-    <!-- <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2 flex gap-4"
-      title="Blog"
-      href="/blog"
-    />
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-xs">
-        © 2024 · Crafted with ♥️ using <a
-          href="https://astro.build/"
-          target="_blank"
-          class="text-red-500">Astro</a
-        > by Gianmarco.
-      </p>
-    </Card> -->
   </main>
 </Layout>

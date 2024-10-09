@@ -20,7 +20,9 @@ let BASE_URL = LOCALHOST_URL;
 if(isBuild){
   BASE_URL = LIVE_URL
 }
-
+const NAME = "Alexi Ae";
+const FULL_NAME = "Alexi Acuña Espino";
+const POSITION = "Backend Developer";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,12 +31,7 @@ export default defineConfig({
   site: BASE_URL,
   integrations: [
     sitemap(),
-    robotsTxt({
-      sitemap: [
-        "https://gianmarco.xyz/sitemap-index.xml",
-        "https://gianmarco.xyz/sitemap-0.xml",
-      ],
-    }),
+    robotsTxt(),
     solidJs(),
     UnoCSS({ injectReset: true }),
     icon(),
@@ -52,4 +49,9 @@ export default defineConfig({
   vite: {
     assetsInclude: "**/*.riv",
   },
+  name: NAME,
+  fullname: FULL_NAME,
+  position: POSITION,
+  title: `${NAME} - ${POSITION}`
+
 });

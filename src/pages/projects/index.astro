@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card/index.astro";
 import HeaderMain from "../../components/HeaderMain.astro";
 import { getCollection } from "astro:content";
+import config from "../../../astro.config.mjs";
+
 const projects = (await getCollection("projects"))?.sort(
   (blogEntryA, blogEntryB) =>
     (blogEntryB.data.pubDate || new Date()).getTime() -
@@ -35,7 +37,7 @@ const projects = (await getCollection("projects"))?.sort(
 </script>
  
 <Layout
-  title="Gianmarco Cavallo - Freelance front-end Developer"
+  title= {config.title}
   description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
 >
 <HeaderMain/>
