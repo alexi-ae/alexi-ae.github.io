@@ -2,7 +2,7 @@
 layout: ../../layouts/LayoutProjectView.astro
 title: "Fundamentos de programación"
 description: "En este proyecto, se ve los puntos basicos para inciar en programación, como la sintaxis basica con Java y conceptos de los pilares de programación orientada a objetos. Todo esto con ejercicios practicos enfocados a temas bancarios."
-pubDate: 2023-01-21
+pubDate: 2024-09-01
 category: "intro"
 ---
 # Programming Fundamentals
