@@ -5,10 +5,10 @@ import MarkdownIt from 'markdown-it';
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const blog = await getCollection("blog");
+  const blog = await getCollection("projects");
   return rss({
-    title: "Gianmarco Cavallo’s Blog",
-    description: "my blog",
+    title: "Alexi Ae’s Projects",
+    description: "my projects",
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,
@@ -17,7 +17,7 @@ export async function GET(context) {
       content: sanitizeHtml(parser.render(post.body)),
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
+      link: `/projects/${post.slug}/`,
     })),
   });
 }

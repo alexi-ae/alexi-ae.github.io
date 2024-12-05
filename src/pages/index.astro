@@ -41,10 +41,7 @@ import config from "../../astro.config.mjs"
 <HeaderMain/>
 <main
     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative  w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-4 lg:gap-4"
-  >
-
-
-  
+  >  
     <IntroCard />
     <!-- <TimeZone /> -->
     <AboutMe />
@@ -52,8 +49,6 @@ import config from "../../astro.config.mjs"
     <ContactsCard />
 
     <Now />
-
-
 
     <Card
       colSpan="md:col-span-1"
@@ -65,14 +60,13 @@ import config from "../../astro.config.mjs"
       <div class="h-full w-full absolute inset-0 -z-10">
         <Globe client:load />
       </div>
-    </Card>
-
-  
+    </Card>  
 
   <Card colSpan="md:col-span-1" rowSpan="md:row-span-1" title="Proyectos"
   href="/projects">
     <p class="text-xs">En esta sección presento una selección de proyectos destacados, demostrando mi experiencia en desarrollo backend y
       soluciones tecnológicas eficientes.</p>  
   </Card>
-  </main>
+
+</main>
 </Layout>

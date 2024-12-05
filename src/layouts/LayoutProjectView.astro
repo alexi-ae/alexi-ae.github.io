@@ -40,6 +40,14 @@ const { frontmatter } = Astro.props;
     </div>
     <article class="prose prose-p:text-red-500 prose-slate prose-invert">
       <slot />
+
+      <script>
+        // Espera a que el documento esté completamente cargado
+        window.addEventListener('DOMContentLoaded', () => {
+          // Elimina una clase del body
+          document.body.classList.remove('flex');  // Eliminar la clase 'default'
+        });
+      </script>
     </article>
   </main>
 </BasicLayout>

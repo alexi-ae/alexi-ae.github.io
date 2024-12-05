@@ -7,7 +7,7 @@ import { formatTime, getCurrentTime } from "../lib/helpers";
 <script>
   import { onCleanup, onMount } from "solid-js";
   import { formatTimeForItaly } from "../lib/helpers";
-import { formatTime } from "../lib/helpers";
+  import { formatTime } from "../lib/helpers";
 
   let interval: ReturnType<typeof setInterval>;
 
@@ -30,60 +30,164 @@ import { formatTime } from "../lib/helpers";
   });
 </script>
 
+<style>
+  /* Estilos generales del header */
+  header {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
 
-<header     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative  w-full">
-  <nav class="navbar">
-    <div class="container">
-      <a href="/" class="logo">Alexi Ae</a>
-      <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/projects">Proyectos</a></li>
-        <!-- <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li> -->
-      </ul>
-      <ul>
-        <li>    
-          <time
-          datetime=""
-          id="timeDisplay"
-          class="text-2xl xl:text-1xl xl:whitespace-nowrap font-serif flex"
-        >
-          {formatTime(getCurrentTime())}
-        </time>
-        
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
-  <style>
-    .navbar {
-      background-color: #333;
-      padding: 1rem;
-    }
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-    }
+  /* Sección superior */
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: #444;
+    font-size: 0.9rem;
+  }
+
+  .header-top .github {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-top .github a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  .header-top time {
+    white-space: nowrap;
+  }
+
+  /* Sección principal */
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    z-index: 10000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 80%;
+  }
+
+  #menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  .close-menu {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    text-align: right;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  /* Responsive estilos */
+  @media (max-width: 768px) {
     .nav-links {
-      list-style: none;
+      display: none;
+      flex-direction: column;
+      background-color: #444;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 1rem;
+      text-align: right;
+    }
+
+    .nav-links.active {
       display: flex;
-      gap: 1.5rem;
+      width: 90%;
+      right: 5%;
     }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
+
+    #menu-toggle {
+      display: block;
     }
-    .nav-links a:hover {
-      color: #ff6347; /* Color al pasar el mouse */
+
+    .close-menu {
+      display: block;
     }
-  </style>
-  
+  }
+</style>
+
+<header>
+  <!-- Sección Superior -->
+  <div class="header-top">
+    <!-- GitHub a la izquierda -->
+    <div class="github">
+      <a href="https://github.com/alexi-ae" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="white" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.417 2.865 8.166 6.839 9.489.5.091.682-.217.682-.483 0-.238-.009-.868-.014-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.909-.62.069-.607.069-.607 1.005.07 1.535 1.032 1.535 1.032.892 1.53 2.341 1.088 2.91.832.092-.646.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.936 0-1.09.39-1.981 1.029-2.68-.103-.253-.447-1.268.098-2.64 0 0 .84-.269 2.75 1.025A9.579 9.579 0 0 1 12 6.843a9.579 9.579 0 0 1 2.508.336c1.91-1.294 2.75-1.025 2.75-1.025.545 1.372.202 2.387.099 2.64.64.7 1.028 1.591 1.028 2.68 0 3.837-2.337 4.678-4.566 4.926.36.309.68.918.68 1.852 0 1.337-.012 2.417-.012 2.745 0 .268.18.58.688.482A10.004 10.004 0 0 0 22 12c0-5.523-4.477-10-10-10z"/>
+        </svg>
+      </a>
+    </div>
+    <!-- Hora a la derecha -->
+    <time datetime="" id="timeDisplay" class="font-serif">
+      {formatTime(getCurrentTime())}
+    </time>
+  </div>
+
+  <!-- Sección Principal -->
+  <div class="header-main">
+    <!-- Logo -->
+    <a href="/" class="logo">Alexi Ae</a>
+
+    <!-- Botón de hamburguesa -->
+    <div id="menu-toggle">☰</div>
+
+    <!-- Menú principal -->
+    <ul class="nav-links" id="nav-links">
+      <span class="close-menu" id="close-menu">✖</span>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/projects">Proyectos</a></li>
+    </ul>
+  </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
