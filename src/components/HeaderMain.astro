@@ -182,12 +182,17 @@ import { formatTime, getCurrentTime } from "../lib/helpers";
     const closeMenu = document.getElementById('close-menu');
     const navLinks = document.getElementById('nav-links');
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    if( menuToggle && navLinks ){
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
 
-    closeMenu.addEventListener('click', () => {
+    }
+    if (closeMenu && navLinks) {
+      closeMenu.addEventListener('click', () => {
       navLinks.classList.remove('active');
     });
+
+    }
   });
 </script>
