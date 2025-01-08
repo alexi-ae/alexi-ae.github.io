@@ -32,7 +32,7 @@ const schema =
           "https://www.linkedin.com/in/ronald-alexi-ae",
           "https://github.com/alexi-ae",
         ],
-        image: "https://alexiae.xyz/og-image.png",
+        image: "https://alexi-ae.github.io/og-image.png",
         jobTitle: "Backend Developer",
         worksFor: {
           "@type": "Backedn Organization",
@@ -57,7 +57,7 @@ const schema =
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        image: "https://alexiae.xyz/og-image.png", //TODO: dynamic
+        image: "https://alexi-ae.github.io/og-image.png", //TODO: dynamic
         author: {
           "@type": "Person",
           name: "Alexi Ae",
@@ -72,7 +72,7 @@ const schema =
           name: "AlexiAe",
           logo: {
             "@type": "ImageObject",
-            url: "https://alexiae.xyz/og-image.png",
+            url: "https://alexi-ae.github.io/og-image.png",
           },
         },
         datePublished: frontmatter?.pubDate || new Date().toISOString(),
@@ -97,7 +97,7 @@ const schema =
     <meta property="og:url" content={Astro.url.origin} />
     <meta
       property="og:image"
-      content={image || "https://alexiae.xyz/og-image.png"}
+      content={image || "https://alexi-ae.github.io/og-image.png"}
     />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -105,7 +105,7 @@ const schema =
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={image || "https://alexiae.xyz/og-image.png"}
+      content={image || "https://alexi-ae.github.io/og-image.png"}
     />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
